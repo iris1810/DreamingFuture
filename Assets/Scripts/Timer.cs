@@ -1,9 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    private float timerDuration = 3f * 60f;
+    private float timerDuration = 1f * 60f;
     private float timer;
 
     [SerializeField] private TextMeshProUGUI firstMinute;
@@ -12,14 +13,18 @@ public class Timer : MonoBehaviour
     [SerializeField] private TextMeshProUGUI firstSecond;
     [SerializeField] private TextMeshProUGUI secondSecond;
 
+    private bool isTimeUp = false;
+
     private void Start()
     {
         ResetTimer();
-        UpdateTimerDisplay(timer); 
+        UpdateTimerDisplay(timer);
     }
 
     private void Update()
     {
+        if (isTimeUp) return;
+
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -31,10 +36,21 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            Flash();
+            isTimeUp = true;
+            StartCoroutine(GameOverSequence());
         }
     }
 
+    private System.Collections.IEnumerator GameOverSequence()
+    {
+        // play sound
+        SoundManager1.Play(SoundType1.GAME_OVER);
+
+        yield return new WaitForSeconds(0.8f); // wait a second
+
+        // change scene
+        SceneManager.LoadScene("Lose");
+    }
     private void ResetTimer()
     {
         timer = timerDuration;
@@ -58,6 +74,6 @@ public class Timer : MonoBehaviour
 
     private void Flash()
     {
-        
+        // optional
     }
 }
