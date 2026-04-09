@@ -4,7 +4,8 @@ using State = Puzzle1_State;
 public enum Puzzle1_State {
   IDLE,
   IN_PROCESS,
-  SOLVED
+  SOLVED,
+  
 }
 
 public class Fsm_Puzzle_1 : MonoBehaviour {
@@ -55,6 +56,7 @@ public class Fsm_Puzzle_1 : MonoBehaviour {
     if (PuzzleState == State.IDLE)
     {
       ChangeState(State.IN_PROCESS);
+      
     }
 
     //check for in order input panel
@@ -80,6 +82,8 @@ public class Fsm_Puzzle_1 : MonoBehaviour {
   {
     ChangeState(State.SOLVED);
 
+    SoundManager1.Play(SoundType1.CORRECT);
+
     //disable for each panel
     foreach(var panel in panels)
     {
@@ -96,6 +100,7 @@ public class Fsm_Puzzle_1 : MonoBehaviour {
   {
    currentStep =0;
    ChangeState(State.IDLE);
+   SoundManager1.Play(SoundType1.WRONG);
 
    foreach(var panel in panels)
     {
