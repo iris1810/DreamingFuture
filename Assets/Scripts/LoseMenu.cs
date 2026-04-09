@@ -5,7 +5,7 @@ public class LoseMenu : MonoBehaviour
 {
     public void RestartGame()
     {
-        SceneManager.LoadScene("MAIN_City_Scene");
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
@@ -16,6 +16,6 @@ public class LoseMenu : MonoBehaviour
 
     public void BackToMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene(0);
     }
 }
