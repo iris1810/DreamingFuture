@@ -49,8 +49,6 @@ public class PanelClick_P1 : MonoBehaviour
         //
         if (manager == null) return; 
 
-        SoundManager1.Play(SoundType1.CLICK_ON); 
-
         manager.PressPanel(this); // follow the panel that player just click 
     }
     public void SetActivated()

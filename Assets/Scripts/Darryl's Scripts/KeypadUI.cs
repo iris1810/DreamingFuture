@@ -10,7 +10,7 @@ public class KeypadUI : MonoBehaviour
     public GameObject panel;
     public TMP_InputField inputField;
     public TMP_Text feedbackText;
-    public DoorController door;
+    public GameObject door;
 
     public string correctCode = "HELLO WORLD";
 
@@ -85,10 +85,7 @@ public class KeypadUI : MonoBehaviour
             feedbackText.text = "ACCESS GRANTED";
 
             if (door != null)
-        {
-            door.UnlockDoor();
-            SoundManager1.Play(SoundType1.CORRECT); 
-        }
+                door.SetActive(false);
         }
         else
         {
