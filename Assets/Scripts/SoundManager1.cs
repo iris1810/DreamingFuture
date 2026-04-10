@@ -5,7 +5,8 @@ public enum SoundType1 {
   CORRECT,
   WRONG,
   CLICK_ON,
-  GAME_OVER
+  GAME_OVER,
+  WIN
 
 }
 
@@ -59,6 +60,7 @@ public class SoundManager1 : MonoBehaviour {
       {SoundType1.WRONG, new SoundCollection1("Wrong") },
       {SoundType1.CLICK_ON, new SoundCollection1("ClickOn") },
       {SoundType1.GAME_OVER, new SoundCollection1("GameOver") },
+      {SoundType1.WIN, new SoundCollection1("Win") },
     };
   }
 

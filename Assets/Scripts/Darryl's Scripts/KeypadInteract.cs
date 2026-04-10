@@ -7,6 +7,7 @@ public class KeypadInteract : MonoBehaviour
     void Grab()
     {
         Debug.Log("Keypad clicked!");
+        SoundManager1.Play(SoundType1.CLICK_ON);
 
         if (keypadUI != null)
         {

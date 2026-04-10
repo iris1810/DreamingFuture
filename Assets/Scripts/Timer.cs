@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
-    private float timerDuration = 2f * 60f;
+    private float timerDuration = 4f * 60f;
     private float timer;
 
     [SerializeField] private TextMeshProUGUI firstMinute;

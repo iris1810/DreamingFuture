@@ -49,4 +49,9 @@ public class CustomCursor : MonoBehaviour {
       }
     }
   }
+
+  // private void OnDestroy() {
+  //   input.UI.Disable();
+  //   input.Disable();
+  //}
 }

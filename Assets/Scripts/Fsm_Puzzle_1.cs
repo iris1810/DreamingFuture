@@ -51,16 +51,19 @@ public class Fsm_Puzzle_1 : MonoBehaviour {
     // if already solved -> return
     if (PuzzleState == State.SOLVED) return;
 
+    SoundManager1.Play(SoundType1.CLICK_ON);
     // if puzzle in idle -> in process
     if (PuzzleState == State.IDLE)
     {
       ChangeState(State.IN_PROCESS);
     }
+    
 
     //check for in order input panel
     if (panel.panelID == correctOrders[currentStep])
     {
       panel.SetActivated();
+      
       currentStep++;
 
       //when the puzzle done solving
@@ -71,6 +74,7 @@ public class Fsm_Puzzle_1 : MonoBehaviour {
     }
     else
     {
+      SoundManager1.Play(SoundType1.WRONG);
       ResetPuzzle();
     }
   }
@@ -79,6 +83,9 @@ public class Fsm_Puzzle_1 : MonoBehaviour {
   private void SolvePuzzle()
   {
     ChangeState(State.SOLVED);
+
+    // play win sound
+    SoundManager1.Play(SoundType1.CORRECT);
 
     //disable for each panel
     foreach(var panel in panels)

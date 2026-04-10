@@ -83,6 +83,7 @@ public class KeypadUI : MonoBehaviour
         {
             currentState = KeypadState.Correct;
             feedbackText.text = "ACCESS GRANTED";
+            SoundManager1.Play(SoundType1.CORRECT);
 
             if (door != null)
                 door.SetActive(false);
@@ -91,6 +92,7 @@ public class KeypadUI : MonoBehaviour
         {
             currentState = KeypadState.Incorrect;
             feedbackText.text = "INVALID CODE";
+            SoundManager1.Play(SoundType1.WRONG);
         }
 
         inputField.text = "";
